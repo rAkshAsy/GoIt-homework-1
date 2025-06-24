@@ -3,6 +3,9 @@ import random
 def get_numbers_ticket(min:int, max:int, quantity:int) -> list:
 
     try:
+        if min < 0 or max < 0 or quantity < 0:
+            return 'Введіть валідні аргументи функції'
+        
         all_nums = []
         for x in range(min, max+1):
             all_nums.append(x)
@@ -15,6 +18,7 @@ def get_numbers_ticket(min:int, max:int, quantity:int) -> list:
 
 
 test_cases = [
+    (-10, 5, 3),
     (1, 5, 3),              #[2, 4, 5]
     (10, 100, 10),          #[16, 18, 31, 42, 54, 58, 67, 78, 87, 89]
     (10, 2, 5),             #Введіть валідні аргументи функції
