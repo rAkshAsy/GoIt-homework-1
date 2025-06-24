@@ -1,9 +1,9 @@
 import re
 
 
-def phone_number(number:str) -> str:
+def normalize_phone(phone_number:str) -> str:
 
-    dirty_num = ''.join(re.findall(r'[+,\d]', number))
+    dirty_num = ''.join(re.findall(r'[+,\d]', phone_number))
 
     if dirty_num.startswith('+380'):
         nomrmalisate_number = f'{dirty_num}'
@@ -17,7 +17,7 @@ def phone_number(number:str) -> str:
     
     return str(nomrmalisate_number)
 
-
+# Testing block
 
 test_list = ["    +38(050)123-32-34",
     "     0503451234",
@@ -30,6 +30,6 @@ formated_numbers = []
 
 
 for phone in test_list:
-    formated_numbers.append(phone_number(phone))
+    formated_numbers.append(normalize_phone(phone))
 
 print(formated_numbers)
