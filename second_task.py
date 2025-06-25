@@ -2,28 +2,29 @@ import random
 
 def get_numbers_ticket(min:int, max:int, quantity:int) -> list:
 
-    try:
-        if min < 1 or (max < 0 and max > 1000) or (quantity < min and quantity > max):
-            return 'Введіть валідні аргументи функції'
-        
-        all_nums = []
-        for x in range(min, max+1):
-            all_nums.append(x)
-            x += 1
+    if type(min) == int and type(max) == int and type(quantity) == int:
+        if min > 0 and max < 1000 and min < max and (quantity > min and quantity < max):
+            all_nums = []
+            for x in range(min, max+1):
+                all_nums.append(x)
+                x += 1
 
-        sorted_result_list = sorted(random.sample(all_nums, quantity))
-        return sorted_result_list
-    except:
-        return 'Введіть валідні аргументи функції'
+            sorted_result_list = sorted(random.sample(all_nums, quantity))
+            return sorted_result_list
+    
+    return []
+    
+    
 
 
 test_cases = [
-    (-10, 5, 3),            #Введіть валідні аргументи функції
     (1, 5, 3),              #[2, 4, 5]
-    (10, 100, 10),          #[16, 18, 31, 42, 54, 58, 67, 78, 87, 89]
-    (10, 2, 5),             #Введіть валідні аргументи функції
-    ('1', 10, 5),           #Введіть валідні аргументи функції
-    (0.8, 5.1, 2)           #Введіть валідні аргументи функції
+    (10, 100, 11),          #[20, 27, 28, 59, 64, 74, 75, 85, 94, 96, 98]
+    (1000, 1300, 10),       #[]
+    (10, 2, 5),             #[]
+    ('1', 10, 5),           #[]
+    (0.8, 5.1, 2),           #[]]
+    (-10, 5, 3),            #[]]
 ]
 
 for case in test_cases:
