@@ -3,12 +3,9 @@ import random
 def get_numbers_ticket(min:int, max:int, quantity:int) -> list:
 
     if type(min) == int and type(max) == int and type(quantity) == int:
-        if min > 0 and max < 1000 and min < max and (quantity > min and quantity < max):
-            all_nums = []
-            for x in range(min, max+1):
-                all_nums.append(x)
-                x += 1
-
+        if 0 < min < max <1000 and quantity <= (max - min + 1):
+            all_nums = list(range(min, max+1))
+            
             sorted_result_list = sorted(random.sample(all_nums, quantity))
             return sorted_result_list
     
